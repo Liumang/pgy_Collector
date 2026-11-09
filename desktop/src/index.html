@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>蒲公英博主采集助手</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="app-shell">
+    <section id="collectorTab" class="browser-shell tab-pane active">
+      <div class="topbar">
+        <div class="brand-group">
+          <img class="brand-logo" src="./assets/logo.png" alt="">
+          <div class="brand">蒲公英博主采集助手</div>
+          <div class="app-tabs" role="tablist" aria-label="功能切换">
+            <button id="collectorTabButton" class="active" type="button">采集助手</button>
+            <button id="dataTabButton" type="button">数据后台</button>
+          </div>
+        </div>
+        <button id="reloadPage" type="button">刷新页面</button>
+        <button id="openPgy" type="button">打开找博主</button>
+      </div>
+      <webview id="pgyView" partition="persist:pgy-session" allowpopups></webview>
+    </section>
+    <section id="dataTab" class="data-shell tab-pane">
+      <div class="topbar">
+        <div class="brand-group">
+          <img class="brand-logo" src="./assets/logo.png" alt="">
+          <div class="brand">蒲公英博主数据库</div>
+          <div class="app-tabs" role="tablist" aria-label="功能切换">
+            <button id="collectorTabButton2" type="button">采集助手</button>
+            <button id="dataTabButton2" class="active" type="button">数据后台</button>
+          </div>
+        </div>
+        <button id="reloadDataConsole" type="button">刷新后台</button>
+      </div>
+      <webview id="dataView" allowpopups></webview>
+    </section>
+
+    <aside class="control-panel">
+      <header>
+        <div class="panel-title">采集控制</div>
+        <div id="version" class="version">Desktop v0.2.3-demo</div>
+      </header>
+
+      <div class="stats">
+        <div>
+          <span>已采集</span>
+          <strong id="count">0</strong>
+        </div>
+        <div>
+          <span>当前页</span>
+          <strong id="pageNo">-</strong>
+        </div>
+        <div>
+          <span>重复跳过</span>
+          <strong id="duplicates">0</strong>
+        </div>
+        <div>
+          <span>状态</span>
+          <strong id="runState">待开始</strong>
+        </div>
+      </div>
+
+      <label>
+        采集方式
+        <select id="collectMode" aria-label="采集方式">
+          <option value="normal">常规采集</option>
+          <option value="enhanced">增强采集</option>
+        </select>
+      </label>
+
+      <label>
+        任务模式
+        <select id="taskMode">
+          <option value="list">当前列表</option>
+          <option value="nickname">博主昵称上传</option>
+          <option value="similar">相似博主</option>
+        </select>
+      </label>
+
+      <div class="upload-actions">
+        <button id="downloadTemplate" type="button">下载 Excel 模板</button>
+        <button id="uploadNicknames" type="button">上传昵称文件</button>
+      </div>
+      <div id="uploadInfo" class="upload-info">未上传昵称文件</div>
+
+      <label>
+        最大页数
+        <input id="maxPages" type="number" min="1" value="100">
+      </label>
+      <label>
+        每页最多
+        <input id="maxItems" type="number" min="1" value="20">
+      </label>
+      <label>
+        延迟 ms
+        <input id="delayMs" type="number" min="300" value="1400">
+      </label>
+
+      <div class="actions">
+        <button id="startCollect" class="primary" type="button">开始采集</button>
+        <button id="stopCollect" class="danger" type="button" disabled>停止</button>
+        <button id="exportCsv" type="button" disabled>导出 CSV</button>
+        <button id="openDataConsole" type="button">查看数据后台</button>
+        <button id="copyDiag" type="button">复制诊断</button>
+      </div>
+
+      <div id="status" class="status">本地 Demo 版已启用。请先登录蒲公英，并在页面中设置筛选条件。</div>
+
+      <footer class="demo-footer">
+        <span id="demoSummary">本地 Demo｜离线演示</span>
+      </footer>
+    </aside>
+  </main>
+
+  <script src="./record-utils.js"></script>
+  <script src="./renderer.js"></script>
+</body>
+</html>

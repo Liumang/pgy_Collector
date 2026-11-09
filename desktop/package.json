@@ -1,0 +1,16 @@
+{
+  "name": "pgy-collector-desktop",
+  "version": "0.2.3-demo",
+  "private": true,
+  "description": "蒲公英博主采集助手 Mac 桌面版",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/*.test.js",
+    "check": "node --check src/main.js && node --check src/preload.js && node --check src/record-utils.js && node --check src/renderer.js && node --check src/webview-preload.js && node --check src/data-console-preload.js",
+    "package:mac": "node tools/package-mac.mjs"
+  },
+  "devDependencies": {
+    "electron": "^31.7.7"
+  }
+}

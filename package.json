@@ -1,0 +1,11 @@
+{
+  "name": "pgy-kol-collector-product",
+  "private": true,
+  "version": "0.4.0",
+  "description": "蒲公英达人采集助手交付工具",
+  "scripts": {
+    "check": "node tools/check-extension.mjs",
+    "build": "node tools/build-extension.mjs",
+    "build:mac": "node tools/build-mac-package.mjs"
+  }
+}

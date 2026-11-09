@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "蒲公英达人采集助手",
+  "description": "在小红书蒲公英达人筛选结果页采集达人昵称、ID和详情页链接，支持多页采集和CSV导出。",
+  "version": "0.4.0",
+  "permissions": [
+    "storage",
+    "tabs",
+    "debugger"
+  ],
+  "host_permissions": [
+    "https://pgy.xiaohongshu.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "hook.js"
+      ],
+      "matches": [
+        "https://pgy.xiaohongshu.com/*"
+      ]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://pgy.xiaohongshu.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "content.css"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

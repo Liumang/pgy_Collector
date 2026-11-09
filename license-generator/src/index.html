@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>授权码生成器</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header>
+      <img src="./assets/logo.png" alt="">
+      <div>
+        <h1>授权码生成器</h1>
+        <p>只给交付方自己使用，请不要发给客户。</p>
+      </div>
+    </header>
+
+    <section class="form">
+      <label>
+        客户名
+        <input id="customer" type="text" placeholder="例如：张三 / 某某公司">
+      </label>
+
+      <label>
+        授权时长
+        <select id="duration">
+          <option value="30">30 天</option>
+          <option value="90">90 天</option>
+          <option value="180">180 天</option>
+          <option value="365">365 天</option>
+          <option value="custom">指定到期日</option>
+          <option value="permanent">永久授权</option>
+        </select>
+      </label>
+
+      <label id="customDateRow" class="hidden">
+        指定到期日
+        <input id="expiresAt" type="date">
+      </label>
+
+      <label>
+        生成数量
+        <input id="quantity" type="number" min="1" max="500" value="1">
+      </label>
+
+      <button id="generate" class="primary" type="button">生成授权码</button>
+    </section>
+
+    <section class="result">
+      <div class="result-head">
+        <strong>授权码</strong>
+        <button id="copy" type="button" disabled>复制授权码</button>
+      </div>
+      <textarea id="licenseCode" readonly placeholder="生成后的授权码会显示在这里；多个授权码会一行一个"></textarea>
+      <div id="status" class="status">等待生成</div>
+    </section>
+  </main>
+
+  <script src="./renderer.js"></script>
+</body>
+</html>

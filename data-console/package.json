@@ -1,0 +1,24 @@
+{
+  "name": "pgy-data-console",
+  "version": "0.2.0",
+  "private": true,
+  "description": "蒲公英博主本地数据库后台",
+  "scripts": {
+    "dev": "node src/server.js",
+    "start": "NODE_ENV=production node src/server.js",
+    "build": "vite build",
+    "test": "node --test test/*.test.js",
+    "check": "node --check src/db.js && node --check src/importer.js && node --check src/server.js && node --check src/path.js && node --check src/exporter.js && node --check src/collector-fields.js"
+  },
+  "dependencies": {
+    "@tanstack/react-table": "^8.21.3",
+    "@vitejs/plugin-react": "^4.7.0",
+    "better-sqlite3": "^11.10.0",
+    "express": "^4.21.2",
+    "lucide-react": "^0.468.0",
+    "vite": "^5.4.19",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {}
+}
