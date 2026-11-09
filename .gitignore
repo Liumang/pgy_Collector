@@ -1,0 +1,44 @@
+# Installed dependencies and generated releases
+node_modules/
+dist/
+*.app/
+*.zip
+*.crx
+*.dmg
+*.pkg
+*.asar
+
+# Credentials and local operator configuration
+*.pem
+*.key
+*.p12
+*.pfx
+.env
+.env.*
+!.env.example
+config.local.json
+.local-secrets/
+
+# Private databases, imports, exports and logs
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+*.csv
+*.xlsx
+*.xls
+*.log
+logs/
+coverage/
+
+# OS and editor state
+.DS_Store
+.idea/
+.vscode/
+*.swp
+
+# Independent video project and unrelated local screenshot
+/showtime-intro-video/
+/github-codex-all-repositories-2026-10-18.png
